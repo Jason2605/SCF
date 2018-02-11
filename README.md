@@ -26,21 +26,21 @@ within a section.
     
 ### Defining the SCF dictionary
     
-`#` Comment
-`{x}` Section
-`<file.scf>` Import
-`key = value`
+* `#` Comment
+* `{x}` Section
+* `<file.scf>` Import
+* `key = value`
 
 
 ### Some value types:
 
-`true/false` or `True/False` -> Bool
-`10` -> Integer
-`10.3` -> Float
-`"string"` or `'string'` -> String
-`[1, 2]` -> List
-`{"a": 10}` -> Dictionary
-`(1, 2)` -> Tuple
+* `true/false` or `True/False` -> Bool
+* `10` -> Integer
+* `10.3` -> Float
+* `"string"` or `'string'` -> String
+* `[1, 2]` -> List
+* `{"a": 10}` -> Dictionary
+* `(1, 2)` -> Tuple
 
 The config will be returned as a Python dictionary.
 
@@ -63,12 +63,31 @@ test.scf
     test = {"test": 10}
     x = 10
 ```
-my_code.py
+Python
 ```python
 >>> config = SCF.read("test.scf")
 >>> config
 {'section1': {'database': 'hello', 'hello': True, 'list': [[10, 10], 'test', 'test', 'test'], 'test': {'test': 10}, 'x': 10}}
 ```
+### Parsing from a string
+Python
+```python
+>>> config_string = """
+{section1}
+    database = "hello"
+    hello = true
+    list = [
+        [10, 10],
+        "test", "test", "test"
+    ]
+    test = {"test": 10}
+    x = 10
+"""
+>>> config = SCF.parse(config_string)
+>>> config
+{'section1': {'database': 'hello', 'hello': True, 'list': [[10, 10], 'test', 'test', 'test'], 'test': {'test': 10}, 'x': 10}}
+```
+
 
 The `read` method has two keyword arguments `error_report` and `strict`. `error_report` will print warnings on duplicate keys whereas `strict` will raise an exception. 
 
