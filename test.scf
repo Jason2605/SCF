@@ -1,0 +1,14 @@
+# Comment
+
+<test1.scf>
+
+{section1}
+    test = "hello"
+    bool = true
+    list = [
+        [10, 10],
+        "test", "test", "test"
+    ]
+    test = {"ok": 10} # Duplicate key
+    x = 10.3
+    y = (1,)
