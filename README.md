@@ -89,6 +89,6 @@ Python
 ```
 
 
-The `read` method has two keyword arguments `error_report` and `strict`. `error_report` will print warnings on duplicate keys whereas `strict` will raise an exception. 
+Both `read` and `parse` have two keyword arguments `error_report` and `strict`. `error_report` will print warnings on duplicate keys whereas `strict` will raise an exception. 
 
 
