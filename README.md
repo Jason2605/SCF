@@ -1,0 +1,2 @@
+# SCF
+Simple Config Format
